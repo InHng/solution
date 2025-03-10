@@ -4,7 +4,7 @@ using namespace std;
 #define int long long
 
 signed main() {
-    int n, m, sum = 0;
+    int n, m;
     cin >> n >> m;
     vector<int> g[n + 1], in(n + 1), ans;
     for (int i = 0; i < m; ++i) {
