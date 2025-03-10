@@ -23,6 +23,9 @@
         "random": "cpp",
         "iosfwd": "cpp",
         "iostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "__bit_reference": "cpp",
+        "forward_list": "cpp",
+        "filesystem": "cpp"
     }
 }
