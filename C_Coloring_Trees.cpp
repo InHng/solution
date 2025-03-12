@@ -4,7 +4,7 @@ using namespace std;
 #define int long long
 
 signed main() {
-    int n, m, k, mn = 0, ans = 0x3f3f3f3f;
+    int n, m, k, mn = 0, ans = 0x3f3f3f3f3f3f3f3f;
     cin >> n >> m >> k;
     // dp[i][j][k] 表示前 i 棵树的最后一棵树涂第 j 种颜色，并且涂成 k 个相同连续段的最小花费
     int p[n + 1][m + 1], dp[n + 1][m + 1][n + 1];
@@ -38,6 +38,6 @@ signed main() {
     for (int i = 1; i <= m; ++i) {
         ans = min(ans, dp[n][i][k]);
     }
-    cout << (ans == 0x3f3f3f3f ? -1 : ans) << endl;
+    cout << (ans == 0x3f3f3f3f3f3f3f3f ? -1 : ans) << endl;
     return 0;
 }
