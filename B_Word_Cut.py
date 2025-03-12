@@ -1,4 +1,4 @@
-MOD = int(1e8 + 7)
+MOD = int(1e9 + 7)
 
 start = input().strip()
 end = input().strip()
