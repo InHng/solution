@@ -30,6 +30,7 @@
         "optional": "cpp",
         "variant": "cpp",
         "iomanip": "cpp",
-        "locale": "cpp"
+        "locale": "cpp",
+        "ostream": "cpp"
     }
 }
