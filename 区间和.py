@@ -1,4 +1,5 @@
 from collections import defaultdict
+from bisect import bisect_left
 
 n, m = map(int, input().split())
 points, Add, query = set(), [], []
@@ -21,16 +22,6 @@ for x, c in Add:
 for i in range(1, len(points) + 2):
     pre[i] += pre[i - 1]
 
-def find(x):
-    left, right = -1, len(points)
-    while left + 1 < right:
-        mid = (left + right) >> 1
-        if points[mid] > x:
-            right = mid
-        else:
-            left = mid
-    return left + 1
-
 for l, r in query:
-    l, r = find(l), find(r)
-    print(pre[r] - pre[l - 1])
+    l, r = bisect_left(points, l), bisect_left(points, r)
+    print(pre[r + 1] - pre[l])

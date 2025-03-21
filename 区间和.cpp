@@ -4,7 +4,7 @@ using namespace std;
 #define int long long
 
 signed main() {
-    int n, m, cnt = 0;
+    int n, m;
     cin >> n >> m;
     vector<int> points;
     vector<pair<int, int>> add, query;
@@ -34,30 +34,10 @@ signed main() {
     for (int i = 1; i <= points.size() + 1; ++i) {
         pre[i] += pre[i - 1];
     }
-    for (int i = 0; i < points.size(); ++i) {
-        cout << points[i] << " \n"[i == points.size() - 1];
-    }
-    for (int i = 0; i < pre.size(); ++i) {
-        cout << pre[i] << " \n"[i == pre.size() - 1];
-    }
-
-    function<int(int)> find = [&](int x) -> int {
-        int left = -1, right = points.size();
-        while (left + 1 < right) {
-            int mid = (left + right) >> 1;
-            if (points[mid] > x) {
-                right = mid;
-            } else {
-                left = mid;
-            }
-        }
-        return left + 1;
-    };
 
     for (auto [l, r] : query) {
-        l = find(l);
-        r = find(r);
-        cout << l<< " " << r << endl;
-        cout << pre[r] - pre[l - 1] << endl;
+        l = lower_bound(points.begin(), points.end(), l) - points.begin();
+        r = lower_bound(points.begin(), points.end(), r) - points.begin();
+        cout << pre[r + 1] - pre[l] << endl;
     }
 }
