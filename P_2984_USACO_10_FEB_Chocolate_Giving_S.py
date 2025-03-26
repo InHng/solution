@@ -9,14 +9,14 @@ for _ in range(m):
     r, s, l = map(int, input().split())
     g[r].append((l, s))
     g[s].append((l, r))
-q = [1]
+q = [(0, 1)]
 dist[1] = 0
 while q:
-    u = heappop(q)
+    dis, u = heappop(q)
     for l, v in g[u]:
-        if dist[v] > dist[u] + l:
-            dist[v] = dist[u] + l
-            heappush(q, v)
+        if dist[v] > dis + l:
+            dist[v] = dis + l
+            heappush(q, (dist[v], v))
 for _ in range(b):
     p, q = map(int, input().split())
     print(dist[p] + dist[q])

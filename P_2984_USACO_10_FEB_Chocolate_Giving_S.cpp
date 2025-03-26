@@ -17,16 +17,16 @@ signed main() {
         g[r].emplace_back(l, s);
         g[s].emplace_back(l, r);
     }
-    priority_queue<int, vector<int>, greater<int>> q;
-    q.emplace(1);
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
+    q.emplace(0, 1);
     dist[1] = 0;
     while (q.size()) {
-        int u = q.top();
+        auto [dis, u] = q.top();
         q.pop();
-        for (auto [dis, v]: g[u]) {
-            if (dist[v] > dist[u] + dis) {
-                dist[v] = dist[u] + dis;
-                q.emplace(v);
+        for (auto [d, v]: g[u]) {
+            if (dist[v] > dis + d) {
+                dist[v] = dis + d;
+                q.emplace(dist[v], v);
             }
         }
     }
